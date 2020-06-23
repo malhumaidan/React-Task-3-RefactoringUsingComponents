@@ -7,7 +7,7 @@
 - Components
 - Props
 
-(Add discussion link here)
+[React 3 - Components and Props](https://docs.google.com/presentation/d/1VhahKb_U-eNWm488M4Ea0u5GgR3-BqnAGB0v5hvW2IU/edit#slide=id.g89fc9bce5c_1_0)
 
 At this point, all of our code is in `App.js`. But what will happen when our website becomes bigger? Basically, we will split the code in `App.js` to many components.
 
