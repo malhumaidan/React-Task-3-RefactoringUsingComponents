@@ -116,7 +116,7 @@ import styles from "../styles";
 
 ```javascript
 const CookieList = () => {
-  const cookieList = cookies.map(cookie => (
+  const cookieList = cookies.map((cookie) => (
     <div style={styles.cookie} key={cookie.id}>
       <img style={styles.cookieImage} alt={cookie.name} src={cookie.image} />
       <p style={styles.text}>{cookie.name}</p>
@@ -207,7 +207,7 @@ import CookieItem from "./CookieItem";
 8. We will render `CookieItem` in the `map` method.
 
 ```javascript
-const cookieList = cookies.map(cookie => <CookieItem />);
+const cookieList = cookies.map((cookie) => <CookieItem />);
 ```
 
 9. And we got an error! `'cookie' is not defined`. But how can we pass `cookie` from the `map` method in `CookieList` to `CookieItem`? Especially that `cookie` represents a different cookie through the iteration, every instance of `CookieItem` needs a different `cookie`!
@@ -216,22 +216,17 @@ const cookieList = cookies.map(cookie => <CookieItem />);
 
 This is when we introduce a very powerful super power of React called `props`.
 
-1. Let's comment out the JSX in `CookieItem` and `CookieList` first to try things out.
+1. Let's comment out the JSX in `CookieItem` and `CookieList`, and `cookieList` in `CookieList` first to try things out.
 
 2. Let's say I want to pass the string `Chocolate Cookie` to `CookieItem` and render it. We will treat it the same way we give a tag an attribute, a name and value. You're free to call it whatever you want, we called it `name` since it represents the name of the cookie, and the value will be our string `Chocolate Cookie`.
 
 ```javascript
-const CookieList = () => {
-  const cookieList = cookies.map(cookie => (
-    <CookieItem cookie={cookie} key={cookie.id} />
-  ));
-  return (
-    <div style={styles.list}>
-      {/* {cookieList} */}
-      <CookieItem name="Chocolate Cookie" />
-    </div>
-  );
-};
+return (
+  <div style={styles.list}>
+    {/* {cookieList} */}
+    <CookieItem name="Chocolate Cookie" />
+  </div>
+);
 ```
 
 This process is called passing `Chocolate Cookie` as a prop.
@@ -258,7 +253,7 @@ const CookieItem = () => {
 6. Basically to use `props` we need to pass it as an argument to `CookieItem`.
 
 ```javascript
-const CookieItem = props => {
+const CookieItem = (props) => {
   console.log(props);
 };
 ```
@@ -336,13 +331,13 @@ const CookieItem = () => {
 
 ```javascript
 const CookieList = () => {
-  const cookieList = cookies.map(cookie => (
+  const cookieList = cookies.map((cookie) => (
     <CookieItem cookie={cookie} key={cookie.id} />
   ));
   const cookie = {
     name: "Chocolate Cookie",
     price: 7,
-    image: "https://www.meals.com/imagesrecipes/144807lrg.jpg"
+    image: "https://www.meals.com/imagesrecipes/144807lrg.jpg",
   };
   return (
     <div style={styles.list}>
