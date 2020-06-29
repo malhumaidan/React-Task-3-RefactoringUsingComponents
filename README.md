@@ -331,9 +331,9 @@ const CookieItem = () => {
 
 ```javascript
 const CookieList = () => {
-  const cookieList = cookies.map((cookie) => (
-    <CookieItem cookie={cookie} key={cookie.id} />
-  ));
+  // const cookieList = cookies.map((cookie) => (
+  //   <CookieItem cookie={cookie} key={cookie.id} />
+  // ));
   const cookie = {
     name: "Chocolate Cookie",
     price: 7,
@@ -394,7 +394,23 @@ const CookieItem = props => {
   );
 ```
 
-17. And we got our design back! But now we want our cookies from `cookies` array! So we will pass `cookie` -which represents a different cookie object in every iteration- as a prop.
+17. And we got our design back! But now we want our cookies from `cookies` array! So let's pass every cookie to a `CookieItem` instance.
+
+```javascript
+const CookieList = () => {
+  return (
+    <div style={styles.list}>
+      <CookieItem cookie={cookies[0]} />
+      <CookieItem cookie={cookies[1]} />
+      <CookieItem cookie={cookies[2]} />
+    </div>
+  );
+};
+```
+
+The problem is that how can my code know how many cookies I have in my array? That's why instead of re-rendering `CookieItem` manually, we use a `.map` which will create an array of `CookieItem` components with a different `cookie` for every element in the array.
+
+18. So we will pass `cookie` -which represents a different cookie object in every iteration- as a prop.
 
 ```javascript
 const CookieList = () => {
@@ -403,7 +419,7 @@ const CookieList = () => {
   ));
 ```
 
-18. One last thing. The proper place for the key is passing it as a prop to `CookieItem`. Don't forget to remove it from the `CookieItem` component.
+19. One last thing. The proper place for the key is passing it as a prop to `CookieItem`. Don't forget to remove it from the `CookieItem` component.
 
 ```javascript
 const CookieList = () => {
@@ -412,6 +428,6 @@ const CookieList = () => {
   ));
 ```
 
-19. Keep in mind that `key` can't be used, it's for the code not for us. If you take a look at the dev tools, you'll see that `key` is not in the `props` object, so we have no access to it.
+20. Keep in mind that `key` can't be used, it's for the code not for us. If you take a look at the dev tools, you'll see that `key` is not in the `props` object, so we have no access to it.
 
-20. Our code looks much better now! How do you feel about it?
+21. Our code looks much better now! How do you feel about it?
