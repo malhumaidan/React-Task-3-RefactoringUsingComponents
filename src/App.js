@@ -1,17 +1,15 @@
 import React from "react";
-
 // Data
-import cookies from "./cookies";
-
+import products from "./products";
 // Styling
 import styles from "./styles";
 
 function App() {
-  const cookieList = cookies.map(cookie => (
-    <div style={styles.cookie} key={cookie.id}>
-      <img style={styles.cookieImage} alt={cookie.name} src={cookie.image} />
-      <p style={styles.text}>{cookie.name}</p>
-      <p style={styles.text}>{cookie.price} KD</p>
+  const productList = products.map((product) => (
+    <div style={styles.product}>
+      <img style={styles.productImage} alt={product.name} src={product.image} />
+      <p style={styles.text}>{product.name}</p>
+      <p style={styles.text}>{product.price} KD</p>
     </div>
   ));
   return (
@@ -25,7 +23,7 @@ function App() {
           style={styles.shopImage}
         />
       </div>
-      <div style={styles.list}>{cookieList}</div>
+      <div style={styles.list}>{productList}</div>
     </div>
   );
 }
