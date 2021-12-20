@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+body {
+  background-color: #fbfefc;
+}
+.product {
+  margin: 20px;
+}
+.productImage {
+  width: 200px;
+  height: 200px;
+}
+.list {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.shopImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.text {
+  text-align: center;
+}
